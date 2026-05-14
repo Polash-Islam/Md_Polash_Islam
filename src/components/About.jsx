@@ -1,7 +1,7 @@
 import React from 'react';
 import { cvData } from '../data';
 import { Code, Layout, Server, Database, PenTool, Brain, Bot, GraduationCap, Calendar, MapPin, Star, FileText, Download } from 'lucide-react';
-import profileImg from '../assets/IMG_3118.PNG';
+import profileImg from '../assets/IMG_3118.png';
 import resumePdf from '../assets/MD POLASH ISLAM.pdf';
 
 const About = () => {

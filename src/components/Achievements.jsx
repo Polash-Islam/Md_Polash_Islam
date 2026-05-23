@@ -45,45 +45,45 @@ const Achievements = () => {
 
       <div className="card fade-in-up">
         {activeTab === 'cp' && (
-          <div className="cp-profiles-grid" style={{ marginBottom: '2rem' }}>
-            <div className="command-header" style={{ marginBottom: '1.5rem', color: 'var(--primary)', fontSize: '1.1rem', fontFamily: "'Fira Code', monospace" }}>
+          <div className="cp-profiles-container">
+            <div className="command-header">
               $ cat cp_profiles.json
             </div>
             
-            <div style={{ backgroundColor: 'rgba(22, 27, 34, 0.5)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '8px', padding: '1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontSize: '1.5rem', fontWeight: 'bold' }}>
+            <div className="cp-stats-box">
+              <div className="cp-stat-item">
+                <div className="cp-stat-value text-yellow">
                   <Code size={24} /> {cvData.cpProfiles.totalProblems}
                 </div>
-                <div style={{ color: '#8b949e', fontSize: '0.85rem', marginTop: '0.25rem', fontFamily: "'Fira Code', monospace" }}>Problems Solved</div>
+                <div className="cp-stat-label">Problems Solved</div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#d2a8ff', fontSize: '1.5rem', fontWeight: 'bold' }}>
+              <div className="cp-stat-item">
+                <div className="cp-stat-value text-magenta">
                   <Trophy size={24} /> {cvData.cpProfiles.totalContests}
                 </div>
-                <div style={{ color: '#8b949e', fontSize: '0.85rem', marginTop: '0.25rem', fontFamily: "'Fira Code', monospace" }}>Contests</div>
+                <div className="cp-stat-label">Contests</div>
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+            <div className="cp-profiles-grid">
               {cvData.cpProfiles.profiles.map((profile, idx) => (
-                <a key={idx} href={profile.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1.5rem 1rem', backgroundColor: 'rgba(13, 17, 23, 0.8)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '8px', textDecoration: 'none', transition: 'border-color 0.2s', textAlign: 'center' }} className="social-card">
-                  <div style={{ fontWeight: 'bold', color: '#c9d1d9', marginBottom: '0.5rem' }}>{profile.platform}</div>
-                  <div style={{ color: '#8b949e', fontSize: '0.75rem', marginBottom: '1rem' }}>{profile.username}</div>
-                  <div style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold' }}>{profile.rating}</div>
-                  <div style={{ color: '#8b949e', fontSize: '0.75rem', marginTop: '0.25rem', letterSpacing: '1px' }}>{profile.rank}</div>
+                <a key={idx} href={profile.url} target="_blank" rel="noopener noreferrer" className="cp-profile-card">
+                  <div className="cp-profile-platform">{profile.platform}</div>
+                  <div className="cp-profile-user">{profile.username}</div>
+                  <div className="cp-profile-rating">{profile.rating}</div>
+                  <div className="cp-profile-rank">{profile.rank}</div>
                 </a>
               ))}
-              <a href="#" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem 1rem', backgroundColor: 'rgba(13, 17, 23, 0.8)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '8px', textDecoration: 'none', transition: 'border-color 0.2s', textAlign: 'center' }} className="social-card">
-                <Code size={24} color="var(--primary)" style={{ marginBottom: '0.5rem' }} />
-                <div style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: 'bold' }}>View Complete<br/>Stats</div>
+              <a href="#" className="cp-profile-card cp-profile-all">
+                <Code size={24} color="var(--primary)" />
+                <div className="cp-profile-platform">View Complete<br/>Stats</div>
               </a>
             </div>
           </div>
         )}
 
         {visibleItems.length === 0 && (
-          <div className="loading-text" style={{ padding: '1rem', color: 'var(--secondary)' }}>
+          <div className="loading-text">
             &gt; Loading data...<span className="blinking-cursor"></span>
           </div>
         )}
